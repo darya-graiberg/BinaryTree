@@ -62,3 +62,23 @@ public class BinaryTree {
         }
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        // добавляем узлы в дерево
+        tree.insert(5);
+        tree.insert(3);
+        tree.insert(7);
+        tree.insert(1);
+        tree.insert(9);
+
+        System.out.println("Дерево после добавления узлов:");
+        tree.traverseInorder();
+
+        System.out.println("\nПоиск узла 7:");
+        System.out.println(tree.search(7) ? "Узел 7 найден" : "Узел 7 не найден");
+
+        System.out.println("\nПоиск узла 10:");
+        System.out.println(tree.search(10) ? "Узел 10 найден" : "Узел 10 не найден");
+    }
+}
