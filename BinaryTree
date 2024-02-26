@@ -1,0 +1,64 @@
+public class BinaryTree {
+    private Node root;
+
+    private class Node {  // класс для для представления узла дерева
+        private int data;
+        private Node left;
+        private Node right;
+
+        public Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    public void insert(int data) {  // позволяет вставить новый узел с заданным значением в дерево
+        root = insertNode(root, data);
+    }
+
+    private Node insertNode(Node root, int data) {  // является рекурсивным и реализует вставку элемента на правильное место в дереве
+        if (root == null) {  // означает, что мы достигли листового узла, и новый узел создается с заданными данными
+            root = new Node(data);
+            return root;
+        }
+        // Если заданное значение меньше значения текущего узла, новый узел будет вставлен в левую ветвь, иначе - в правую ветвь.
+        if (data < root.data) {
+            root.left = insertNode(root.left, data);
+        } else if (data > root.data) {
+            root.right = insertNode(root.right, data);
+        }
+
+        return root;
+    }
+
+    public boolean search(int data) {  // выполняет поиск заданного значения в дереве
+        return searchNode(root, data);
+    }
+
+    private boolean searchNode(Node root, int data) {  // вляется рекурсивным и выполняет поиск в заданном поддереве, начиная с узла root
+        if (root == null) {
+            return false;
+        }
+
+        if (data == root.data) {
+            return true;
+        } else if (data < root.data) {
+            return searchNode(root.left, data);
+        } else {
+            return searchNode(root.right, data);
+        }
+    }
+    
+    public void traverseInorder() {  // позволяет выполнять обход дерева в порядке in-order
+        inorderTraversal(root);
+    }
+
+    private void inorderTraversal(Node root) {  // выполняет рекурсивное обходы левой ветви, выводит значение текущего узла и затем выполняет рекурсивное обходы правой ветви
+        if (root != null) {
+            inorderTraversal(root.left);
+            System.out.print(root.data + " ");
+            inorderTraversal(root.right);
+        }
+    }
+}
