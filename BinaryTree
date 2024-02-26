@@ -1,4 +1,4 @@
-public class BinaryTree {
+class BinaryTree {
     private Node root;
 
     private class Node {  // класс для для представления узла дерева
@@ -76,9 +76,9 @@ public class Main {
         tree.traverseInorder();
 
         System.out.println("\nПоиск узла 7:");
-        System.out.println(tree.search(7) ? "Узел 7 найден" : "Узел 7 не найден");
+        System.out.println(tree.search(7) ? "Узел 7 найден" : "Узел 7 не найден");    // выводит "Узел 7 найден"
 
         System.out.println("\nПоиск узла 10:");
-        System.out.println(tree.search(10) ? "Узел 10 найден" : "Узел 10 не найден");
+        System.out.println(tree.search(10) ? "Узел 10 найден" : "Узел 10 не найден");    // выводит "Узел 10 не найден"
     }
 }
